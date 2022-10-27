@@ -16,13 +16,13 @@ export class HeroService {
 
   createNewHero(newHero: Hero): Promise<any> {
     return AppDataSource.query(
-      `INSERT INTO hero (name,power,life)  VALUES (${newHero.name},${newHero.power},${newHero.life})`
+      `INSERT INTO hero (name,power,life)  VALUES( '${newHero.name}',${newHero.power},${newHero.life})`
     );
   }
 
   updateOneHero(id: number, changes: Hero): Promise<any> {
     return AppDataSource.query(
-      `UPDATE hero SET name = ${changes.name}, power=${changes.power}, life=${changes.life} WHERE hero.id= ${id}`
+      `UPDATE hero SET name = '${changes.name}', power=${changes.power}, life=${changes.life} WHERE hero.id= ${id}`
     );
   }
 
