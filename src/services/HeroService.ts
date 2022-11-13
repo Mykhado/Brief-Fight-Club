@@ -27,6 +27,8 @@ export class HeroService {
   }
 
   deleteOneHero(id: number): Promise<any> {
+    const requete = `DELETE FROM hero WHERE hero.id = ${id}`;
+    console.log(requete);
     return AppDataSource.query(`DELETE FROM hero WHERE hero.id = ${id}`);
   }
 }
